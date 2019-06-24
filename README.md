@@ -90,7 +90,7 @@ SwipeStack(
 ```
 
 ```bash
-    _swipeKey.currentState.swipeLeft();
-    _swipeKey.currentState.swipeRight();
-    _swipeKey.currentState.rewind();
+_swipeKey.currentState.swipeLeft();
+_swipeKey.currentState.swipeRight();
+_swipeKey.currentState.rewind();
 ```
