@@ -10,11 +10,11 @@ Swipe stack flutter.
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/swipe.jpg" height="300">
-![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/left.jpg)
-![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/right.jpg)
-![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/top.jpg)
-![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/bottom.jpg)
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/swipe.jpg" width="300">
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/top.jpg" width="300">
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/left.jpg" width="300">
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/right.jpg" width="300">
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/bottom.jpg" width="300">
 
 [Youtube Video](https://www.youtube.com/watch?v=vWttY4jWa7k)
 
