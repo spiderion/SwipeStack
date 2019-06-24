@@ -10,7 +10,7 @@ Swipe stack flutter.
 
 ## Screenshot
 
-![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/swipe.jpg)
+<img src="https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/swipe.jpg" height="300">
 ![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/left.jpg)
 ![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/right.jpg)
 ![](https://raw.githubusercontent.com/gmetekorkmaz/images/master/swipe-stack/top.jpg)
