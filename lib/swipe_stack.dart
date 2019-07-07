@@ -90,6 +90,8 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
   // 0 None, 1 move, 2 manuel, 3 rewind
 
   BoxConstraints _baseContainerConstraints;
+
+  int get currentIndex => widget.children.length - 1;
   
   @override
   void initState() {
@@ -324,6 +326,7 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
     }
   }
 
+  void clearHistory() => _history.clear();
 
   @override
   void dispose() { 
