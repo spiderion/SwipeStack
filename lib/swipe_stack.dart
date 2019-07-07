@@ -179,6 +179,7 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
             builder: (BuildContext context, BoxConstraints constraints) {
               return Stack(
                 overflow: Overflow.visible,
+                fit: StackFit.expand,
                 children: widget.children.asMap().map((int index, _){
                   return MapEntry(
                     index,
