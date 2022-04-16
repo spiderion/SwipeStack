@@ -9,7 +9,7 @@ class SwiperItem {
   Widget Function(SwiperPosition, double progress) builder;
 
   SwiperItem({
-    @required
+    required
     this.builder
   });
   
@@ -17,7 +17,7 @@ class SwiperItem {
 
 class SwipeStack extends StatefulWidget {
 
-  final List<SwiperItem> children;
+  final List<SwiperItem?> children;
   final int maxAngle;
   final int threshold;
   final StackFrom stackFrom;
@@ -26,14 +26,14 @@ class SwipeStack extends StatefulWidget {
   final double scaleInterval;
   final Duration animationDuration;
   final int historyCount;
-  final void Function(int, SwiperPosition) onSwipe;
-  final void Function(int, SwiperPosition) onRewind;
-  final void Function() onEnd;
+  final void Function(int, SwiperPosition)? onSwipe;
+  final void Function(int, SwiperPosition?)? onRewind;
+  final void Function()? onEnd;
   final EdgeInsetsGeometry padding;
 
   SwipeStack({
-    Key key,
-    @required
+    Key? key,
+    required
     this.children,
     this.maxAngle = 35,
     this.threshold = 30,
@@ -61,10 +61,10 @@ class SwipeStack extends StatefulWidget {
 
 class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMixin {
 
-  AnimationController _animationController;
-  Animation<double> _animationX;
-  Animation<double> _animationY;
-  Animation<double> _animationAngle;
+  late AnimationController _animationController;
+  Animation<double>? _animationX;
+  Animation<double>? _animationY;
+  Animation<double>? _animationAngle;
   
   double _left = 0;
   double _top = 0;
@@ -89,7 +89,7 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
   int _animationType = 0;
   // 0 None, 1 move, 2 manuel, 3 rewind
 
-  BoxConstraints _baseContainerConstraints;
+  late BoxConstraints _baseContainerConstraints;
 
   int get currentIndex => widget.children.length - 1;
   
@@ -104,13 +104,13 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
       if (_animationController.status == AnimationStatus.forward) {
 
         if (_animationX != null)
-          _left = _animationX.value;
+          _left = _animationX!.value;
 
         if (_animationY != null)
-          _top = _animationY.value;
+          _top = _animationY!.value;
 
         if (_animationType != 1 && _animationAngle != null)
-          _angle = _animationAngle.value;
+          _angle = _animationAngle!.value;
 
         _progress = (100 / _baseContainerConstraints.maxWidth) * _left.abs();
         _currentItemPosition = (_left.toInt() == 0) ? SwiperPosition.None : (_left < 0) ? SwiperPosition.Left : SwiperPosition.Right;
@@ -138,7 +138,7 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
           }
         } else if (_animationType == 3) {
           if (widget.onRewind != null)
-            widget.onRewind(widget.children.length-1, _history[_history.length-1]["position"]);
+            widget.onRewind!(widget.children.length-1, _history[_history.length-1]["position"]);
           _history.removeAt(_history.length-1);
         }
 
@@ -146,10 +146,10 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
           widget.children.removeAt(widget.children.length-1);
 
           if (widget.onSwipe != null)
-            widget.onSwipe(widget.children.length, _currentItemPosition);
+            widget.onSwipe!(widget.children.length, _currentItemPosition);
 
           if (widget.children.length == 0 && widget.onEnd != null)
-            widget.onEnd();
+            widget.onEnd!();
 
         }
 
@@ -220,7 +220,7 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
             alignment: _alignment[widget.stackFrom],
             child: Container(
               constraints: constraints,
-              child: widget.children[index].builder(SwiperPosition.None, 0)
+              child: widget.children[index]!.builder(SwiperPosition.None, 0)
             )
           )
         ),
@@ -240,11 +240,11 @@ class SwipeStackState extends State<SwipeStack> with SingleTickerProviderStateMi
           angle: _angle,
           child: Container(
             constraints: constraints,
-            child: widget.children[index].builder(_currentItemPosition, _progress)
+            child: widget.children[index]!.builder(_currentItemPosition, _progress)
           ),
         ),
         onPanStart: (DragStartDetails dragStartDetails) {
-          RenderBox getBox = context.findRenderObject();
+          RenderBox getBox = context.findRenderObject() as RenderBox;
           var local = getBox.globalToLocal(dragStartDetails.globalPosition);
 
           _isLeft = local.dx < getBox.size.width / 2;
